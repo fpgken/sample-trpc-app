@@ -1,3 +1,4 @@
+import { Status } from "@prisma/client";
 import { useState } from "react";
 import { trpc } from "../../utils/trpc";
 
@@ -49,6 +50,13 @@ export default function NotesForm() {
           name="content"
           className="border"
         />
+      </div>
+      <div>
+        <select>
+          {Object.keys(Status).map((status) => (
+            <option key={status}>{status}</option>
+          ))}
+        </select>
       </div>
       <div className="mt-2">
         <button className="rounded bg-blue-400 px-2 py-1" type="submit">
